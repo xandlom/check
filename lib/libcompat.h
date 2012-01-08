@@ -19,6 +19,12 @@
 #define CK_ATTRIBUTE_UNUSED              
 #endif /* GCC 2.95 */
 
+#if _MSC_VER
+#include <WinSock2.h> /* struct timeval, API used in gettimeofday implementation */
+#include <io.h> /* read, write */
+#include <process.h> /* getpid */
+#endif /* _MSC_VER */
+
 /* defines size_t */
 #include <sys/types.h>
 
@@ -33,11 +39,6 @@
 #include <sys/time.h>
 #endif /* !HAVE_SYS_TIME_H */
 #include <time.h>
-
-#if _MSC_VER
-#include <WinSock2.h> /* struct timeval, API used in gettimeofday implementation */
-#include <io.h> /* read, write */
-#endif /* _MSC_VER */
 
 /* declares fork(), _POSIX_VERSION.  according to Autoconf.info,
    unistd.h defines _POSIX_VERSION if the system is POSIX-compliant,
@@ -70,14 +71,18 @@ void *rpl_realloc (void *p, size_t n);
 int fileno (FILE *stream);
 #elif !HAVE_FILENO && HAVE__FILENO
 #define fileno _fileno;
-#endif /*!HAVE_FILENO && HAVE__FILENO */
+#endif /* !HAVE_FILENO && HAVE__FILENO */
 
-#if !HAVE_LOCALTIME_R
-struct tm *localtime_r (const time_t *clock, struct tm *result);
-#endif /* !HAVE_LOCALTIME_R */
+#if !HAVE_GETPID && HAVE__GETPID
+#define getpid _getpid;
+#endif /* !HAVE_GETPID && HAVE__GETPID */
 
 #if !HAVE_GETTIMEOFDAY
 int gettimeofday (struct timeval *tv, void* tz);
+#endif /* !HAVE_LOCALTIME_R */
+
+#if !HAVE_LOCALTIME_R
+struct tm *localtime_r (const time_t *clock, struct tm *result);
 #endif /* !HAVE_LOCALTIME_R */
 
 #if !HAVE_PIPE && !HAVE__PIPE
@@ -115,7 +120,7 @@ unsigned int sleep (unsigned int seconds);
 char *strdup (const char *str);
 #elif !HAVE_STRDUP && HAVE__STRDUP
 #define strdup _strdup;
-#endif /*!HAVE_STRDUP && HAVE__STRDUP */
+#endif /* !HAVE_STRDUP && HAVE__STRDUP */
 
 #if !HAVE_SNPRINTF && HAVE__SNPRINTF
 #define snprintf _snprintf
