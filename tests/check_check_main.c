@@ -10,14 +10,15 @@ int main (void)
   int n;
   SRunner *sr;
 
-//#ifdef _POSIX_VERSION
+#ifdef _POSIX_VERSION
   fork_setup();
   setup_fixture();
+#endif /* _POSIX_VERSION */
+  
   setup();
-//#endif /* _POSIX_VERSION */
-
+  
   sr = srunner_create (make_master_suite());
-/*srunner_add_suite(sr, make_list_suite());
+  srunner_add_suite(sr, make_list_suite());
   srunner_add_suite(sr, make_msg_suite());
   srunner_add_suite(sr, make_log_suite());
   srunner_add_suite(sr, make_log_internal_suite());
@@ -26,7 +27,6 @@ int main (void)
   srunner_add_suite(sr, make_fixture_suite());
   srunner_add_suite(sr, make_pack_suite());
   srunner_add_suite(sr, make_exit_suite());
-*/
   srunner_add_suite(sr, make_selective_suite());
 
   printf ("Ran %d tests in subordinate suite\n", sub_ntests);
