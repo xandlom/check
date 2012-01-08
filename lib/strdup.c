@@ -1,8 +1,11 @@
 #include "libcompat.h"
 
-char *
-strdup (const char *str CK_ATTRIBUTE_UNUSED)
+#if !HAVE_STRDUP && !HAVE__STRDUP
+
+char * strdup (const char *str CK_ATTRIBUTE_UNUSED)
 {
-  assert (0);
-  return NULL;
+    assert (0);
+    return NULL;
 }
+
+#endif /* #if !HAVE_STRDUP && !HAVE__STRDUP */

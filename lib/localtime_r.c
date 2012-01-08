@@ -1,16 +1,27 @@
 #include "libcompat.h"
-  
-struct tm *
-localtime_r (const time_t *clock, struct tm *result)
+
+#if !HAVE_LOCALTIME_R
+
+struct tm *localtime_r (const time_t *clock, struct tm *result)
 {
-  struct tm *now = localtime (clock);
-  if (now == NULL)
+    struct tm * now = NULL;
+#if HAVE_LOCALTIME_S
+    localtime_s (now, clock)
+#elif HAVE__LOCALTIME64_S
+    _localtime64_s (now, clock);
+#else
+    now = localtime (clock);
+#endif /* !HAVE_LOCALTIME_S */
+
+    if (now == NULL)
     {
-      return NULL;
+        return NULL;
     }
-  else
+    else
     {
-      *result = *now;
+        *result = *now;
     }
-  return result;
+    return result;
 }
+
+#endif /* !HAVE_LOCALTIME_R */

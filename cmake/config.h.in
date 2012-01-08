@@ -260,6 +260,9 @@ typedef uint64_t uintmax_t;
 /* Define to 1 if you have the <fcntl.h> header file. */
 #cmakedefine HAVE_FCNTL_H 1
 
+/* Define to 1 if you have the `fileno' function. */
+#cmakedefine HAVE_FILENO 1
+
 /* Define to 1 if you have the `fork' function. */
 #cmakedefine HAVE_FORK 1
 
@@ -274,6 +277,9 @@ typedef uint64_t uintmax_t;
 
 /* Define to 1 if you have the `getpid' function. */
 #cmakedefine HAVE_GETPID 1
+
+/* Define to 1 if you have the `gettimeofday' function. */
+#cmakedefine HAVE_GETTIMEOFDAY 1
 
 /* Define to 1 if you have the `gmtime_r' function. */
 #cmakedefine HAVE_GMTIME_R 1
@@ -293,8 +299,14 @@ typedef uint64_t uintmax_t;
 /* Define to 1 if you have the `localtime_r' function. */
 #cmakedefine HAVE_LOCALTIME_R 1
 
+/* Define to 1 if you have the `localtime_s' function. */
+#cmakedefine HAVE_LOCALTIME_S 1
+
 /* Define to 1 if the system has the type `long long int'. */
 #cmakedefine HAVE_LONG_LONG_INT 1
+
+/* Define to 1 if you have the `malloc' function. */
+#cmakedefine HAVE_MALLOC 1
 
 /* Define to 1 if you have the `mbrtowc' function. */
 #cmakedefine HAVE_MBRTOWC 1
@@ -326,6 +338,12 @@ typedef uint64_t uintmax_t;
 /* Define to 1 if you have the <process.h> header file. */
 #cmakedefine HAVE_PROCESS_H 1
 
+/* Define to 1 if you have the `putenv' function. */
+#cmakedefine HAVE_PUTENV 1
+
+/* Define to 1 if you have the `realloc' function. */
+#cmakedefine HAVE_REALLOC 1
+
 /* Define to 1 if you have the <regex.h> header file. */
 #cmakedefine HAVE_REGEX_H 1
 
@@ -340,6 +358,9 @@ typedef uint64_t uintmax_t;
 
 /* Define to 1 if you have the <signal.h> header file. */
 #cmakedefine HAVE_SIGNAL_H 1
+
+/* Define to 1 if you have the `sleep' function. */
+#cmakedefine HAVE_SLEEP 1
 
 /* Define to 1 if you have the <stdarg.h> header file. */
 #cmakedefine HAVE_STDARG_H 1
@@ -373,6 +394,9 @@ typedef uint64_t uintmax_t;
 
 /* Define to 1 if you have the `strrchr' function. */
 #cmakedefine HAVE_STRRCHR 1
+
+/* Define to 1 if you have the `strsignal' function. */
+#cmakedefine HAVE_STRSIGNAL 1
 
 /* Define to 1 if you have the <sys/dir.h> header file,
    and it defines `DIR'. */
@@ -459,6 +483,9 @@ typedef uint64_t uintmax_t;
 /* Define to 1 if you have the `_ctime64_s' function. */
 #cmakedefine HAVE__CTIME64_S 1
 
+/* Define to 1 if you have the `_fileno' function. */
+#cmakedefine HAVE__FILENO 1
+
 /* Define to 1 if you have the `_fseeki64' function. */
 #cmakedefine HAVE__FSEEKI64 1
 
@@ -470,6 +497,18 @@ typedef uint64_t uintmax_t;
 
 /* Define to 1 if you have the `_mkgmtime64' function. */
 #cmakedefine HAVE__MKGMTIME64 1
+
+/* Define to 1 if you have the `_pipe' function. */
+#cmakedefine HAVE__PIPE 1
+
+/* Define to 1 if you have the `_putenv' function. */
+#cmakedefine HAVE__PUTENV 1
+
+/* Define to 1 if you have the `_strdup' function. */
+#cmakedefine HAVE__STRDUP 1
+
+/* Define to 1 if you have the `_snprintf' function. */
+#cmakedefine HAVE__SNPRINTF 1
 
 /* Version number of Check */
 #cmakedefine CHECK_VERSION "${CHECK_MAJOR_VERSION}.${CHECK_MINOR_VERSION}.${CHECK_MICRO_VERSION}"

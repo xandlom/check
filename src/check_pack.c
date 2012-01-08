@@ -276,7 +276,7 @@ void ppack (int fdes, enum ck_msg_type type, CheckMsg *msg)
   if (n > (CK_MAX_MSG_SIZE / 2))
     eprintf("Message string too long", __FILE__, __LINE__ - 2);
 
-  pthread_mutex_lock(&mutex_lock);
+  pthread_mutex_lock(&mu    tex_lock);
   r = write (fdes, buf, n);
   pthread_mutex_unlock(&mutex_lock);
   if (r == -1)

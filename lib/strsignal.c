@@ -1,9 +1,12 @@
 #include "libcompat.h"
 
-const char *
-strsignal (int sig)
+#if !HAVE_STRSIGNAL
+
+const char * strsignal (int sig)
 {
-  static char signame[40];
-  sprintf(signame, "SIG #%d", sig);
-  return signame;
+    static char signame[40];
+    sprintf(signame, "SIG #%d", sig);
+    return signame;
 }
+
+#endif /* !HAVE_STRSIGNAL */
