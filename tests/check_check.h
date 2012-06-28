@@ -2,7 +2,9 @@
 #define CHECK_CHECK_H
 
 #ifndef TIMEOUT_TESTS_ENABLED
+#ifdef _POSIX_VERSION
 #define TIMEOUT_TESTS_ENABLED 1
+#endif /* _POSIX_VERSION */
 #endif
 
 int sub_nfailed;

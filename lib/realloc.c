@@ -4,12 +4,14 @@
 
 #include "libcompat.h"
 
+#if !HAVE_REALLOC
+
 /* realloc has been defined to rpl_realloc, so first undo that */
 #undef realloc
-     
+
 /* this gives us the real realloc to use below */
 void *realloc (void *p, size_t n);
-     
+
 /* force realloc(p, 0) and realloc (NULL, n) to return a valid pointer */
 void *
 rpl_realloc (void *p, size_t n)
@@ -20,3 +22,5 @@ rpl_realloc (void *p, size_t n)
     return malloc (n);
   return realloc (p, n);
 }
+
+#endif /* !HAVE_REALLOC */

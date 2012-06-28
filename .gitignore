@@ -1,0 +1,79 @@
+
+# /
+/configure
+/Makefile.in
+/config.log
+/config.h
+/INSTALL
+/Makefile
+/check.pc
+/config.status
+/check-0.9.5.tar.gz
+/build-aux
+/stamp-h1
+/config.h.in
+/libtool
+/autom4te.cache
+/aclocal.m4
+/SVNChangeLog
+
+# /checkmk/
+/checkmk/Makefile.in
+/checkmk/checkmk
+/checkmk/Makefile
+
+# /doc/
+/doc/Makefile
+/doc/Makefile.in
+/doc/tutorial.sgml
+/doc/tutorial*.html
+/doc/*.diff
+/doc/stamp-vti
+/doc/*.info
+/doc/version.texi
+
+# /doc/example/
+/doc/example/Makefile
+/doc/example/Makefile.in
+
+# /doc/example/src/
+/doc/example/src/Makefile.in
+
+# /doc/example/tests/
+/doc/example/tests/Makefile.in
+
+# /lib/
+/lib/Makefile
+/lib/Makefile.in
+/lib/.deps
+
+# /m4/
+/m4/ltsugar.m4
+/m4/libtool.m4
+/m4/ltversion.m4
+/m4/lt~obsolete.m4
+/m4/ltoptions.m4
+
+# /src/
+/src/.deps
+/src/Makefile
+/src/Makefile.in
+/src/libcheck.a
+/src/check.h
+/src/exported.sym
+
+# /tests/
+/tests/.deps
+/tests/Makefile
+/tests/Makefile.in
+/tests/check_check
+/tests/check_stress
+/tests/check_thread_stress
+/tests/ex_log_output
+/tests/ex_output
+/tests/ex_xml_output
+/tests/check_check_export
+/tests/test.log
+/tests/test.log.xml
+/tests/*.exe
+/tests/test_vars

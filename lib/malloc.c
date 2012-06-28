@@ -3,6 +3,8 @@
 
 #include "libcompat.h"
 
+#if !HAVE_MALLOC
+
 /* malloc has been defined to rpl_malloc, so first undo that */
 #undef malloc
 
@@ -17,3 +19,5 @@ rpl_malloc (size_t n)
     n = 1;
   return malloc (n);
 }
+
+#endif /* !HAVE_MALLOC */

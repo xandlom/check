@@ -305,14 +305,17 @@ END_TEST
 START_TEST(test_segv)
   #define LINENO_segv _STR(__LINE__)
 {
+#ifdef _POSIX_VERSION
   raise (SIGSEGV);
+#endif /* _POSIX_VERSION */
 }
 END_TEST
 
-
 START_TEST(test_fpe)
 {
+#ifdef _POSIX_VERSION
   raise (SIGFPE);
+#endif /* _POSIX_VERSION */
 }
 END_TEST
 
@@ -325,8 +328,10 @@ START_TEST(test_mark_point)
   i = 0;
   i++;
   mark_point();
+#ifdef _POSIX_VERSION
   raise(SIGFPE);
   fail("Shouldn't reach here");
+#endif /* _POSIX_VERSION */
 }
 END_TEST
 

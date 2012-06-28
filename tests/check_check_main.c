@@ -13,9 +13,9 @@ int main (void)
 #ifdef _POSIX_VERSION
   fork_setup();
   setup_fixture();
-  setup();
 #endif /* _POSIX_VERSION */
-
+  setup();
+  
   sr = srunner_create (make_master_suite());
   srunner_add_suite(sr, make_list_suite());
   srunner_add_suite(sr, make_msg_suite());

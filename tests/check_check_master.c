@@ -360,8 +360,11 @@ void setup (void)
   init_master_tests_lineno();
   init_signal_strings();
 
+#ifdef _POSIX_VERSION
   srunner_add_suite(sr, make_sub2_suite());
   srunner_run_all(sr, CK_VERBOSE);
+#endif /* _POSIX_VERSION */
+
   tr_fail_array = srunner_failures(sr);
   tr_all_array = srunner_results(sr);
   sub_nfailed = srunner_ntests_failed(sr);
